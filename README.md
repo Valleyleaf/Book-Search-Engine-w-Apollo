@@ -15,10 +15,10 @@
 TEMP
 
 ## 🚨Installation
-TEMP
+Download and run through your 
 
 ## ✅Dependancies
-TEMP
+Apollo
 
 ## 🚀Usage
 TEMP
@@ -28,4 +28,4 @@ Find me at https://github.com/Valleyleaf or reach out to me
 at: valleyleaf@gmail.com
 
 ## 🤝How to Contribute
-TEMP
+Feel free to optimize and add additional features.

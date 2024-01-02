@@ -15,17 +15,17 @@ const resolvers = {
       const token = signToken(user);
 
       console.log('Logged in user is:', user);
-      
+
       return {token, user};
+      //Ensure above works. Mutations are weird. As their name implies
     },
-    createVote: async (parent, { _id, techNum }) => {
-      const vote = await Matchup.findOneAndUpdate(
-        { _id },
-        { $inc: { [`tech${techNum}_votes`]: 1 } },
-        { new: true }
-      );
-      return vote;
-    },
+    
+    //login function here
+
+    //savebook function here
+
+    //remove book function here
+
   },
 };
 
