@@ -27,3 +27,5 @@ const resolvers = {
 };
 
 module.exports = resolvers;
+
+//This needs to be refactored proper. Use framework, trash the rest.

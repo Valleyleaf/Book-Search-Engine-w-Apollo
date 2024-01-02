@@ -24,3 +24,7 @@ const typeDefs = `
 `;
 
 module.exports = typeDefs;
+
+
+//Refactor this to reference books, User, Auth, Query and Mutations. Models hold first
+//3 Items, rest need research.
