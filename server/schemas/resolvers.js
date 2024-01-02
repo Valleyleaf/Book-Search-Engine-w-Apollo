@@ -1,18 +1,22 @@
 const { User } = require('../models');
-const { TEMP } = require('../utils/auth');
+const { signToken, AuthenticationError, authMiddleware } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    me: async () => {
+    me: async (parent, args, context) => {
       if (context.user) {
         return User.findOne({_id: context.user._id})
       }
     },
   },
   Mutation: {
-    createMatchup: async (parent, args) => {
-      const matchup = await Matchup.create(args);
-      return matchup;
+    addUser: async (_, {username, email, password}) => {
+      const user = await User.create({username, email, password});
+      const token = signToken(user);
+
+      console.log('Logged in user is:', user);
+      
+      return {token, user};
     },
     createVote: async (parent, { _id, techNum }) => {
       const vote = await Matchup.findOneAndUpdate(
