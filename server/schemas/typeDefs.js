@@ -1,30 +1,41 @@
 const typeDefs = `
-  type Tech {
-    _id: ID!
-    name: String!
-  }
 
-  type Matchup {
-    _id: ID!
-    tech1: String!
-    tech2: String!
-    tech1_votes: Int
-    tech2_votes: Int
-  }
+type User {
+  _id: ID
+  username: String
+  email: String
+  password: String
+  savedBooks: [Book]
+}
 
-  type Query {
-    tech: [Tech]
-    matchups(_id: String): [Matchup]
-  }
+type Book {
+    bookId: String
+    authors: [String]
+    title: String
+    description: String
+    image: String
+    link: String
+}
 
-  type Mutation {
-    createMatchup(tech1: String!, tech2: String!): Matchup
-    createVote(_id: String!, techNum: Int!): Matchup
-  }
+type Auth {
+    token: ID
+    user: User
+}
+
+type Query {
+    me: User
+}
+
+type Mutation {
+    addUser(username: String!, email: String!, password: String!): Auth
+    login(username: String, email: String, password: String!): Auth
+    saveBook(authors: [String]!, description: String!, bookId: String!, image: String, link: String, title: String! ): User
+    removeBook(bookId: String!): User
+}
 `;
 
 module.exports = typeDefs;
 
 
 //Refactor this to reference books, User, Auth, Query and Mutations. Models hold first
-//3 Items, rest need research.
+//3 Items, rest need research. [DONE]
