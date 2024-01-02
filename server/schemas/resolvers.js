@@ -1,13 +1,12 @@
-const { Tech, Matchup } = require('../models');
+const { User } = require('../models');
+const { TEMP } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    tech: async () => {
-      return Tech.find({});
-    },
-    matchups: async (parent, { _id }) => {
-      const params = _id ? { _id } : {};
-      return Matchup.find(params);
+    me: async () => {
+      if (context.user) {
+        return User.findOne({_id: context.user._id})
+      }
     },
   },
   Mutation: {
